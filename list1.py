@@ -27,7 +27,9 @@ class Main(QMainWindow, form_class):
 
     def loadItems(self):
         # following line will add values to list widget when program execure
-        self.list1.addItems(['T-Shirt','Shirt','Jackets', 'Trousers', 'Jeans'])
+        category = ['T-Shirt','Shirt','Jackets', 'Trousers', 'Jeans']
+        #for catgr in category :
+        self.list1.addItems(category)
 
         # following line will highlight value in the list when program execute
         self.list1.setCurrentRow(1)
@@ -44,6 +46,7 @@ class Main(QMainWindow, form_class):
     def add_item(self):
         currentRow = self.list1.currentRow()
         newItem, ok = QInputDialog.getText(self,"New Item", "Enter New Item Name")
+        print(newItem)
         if ok and newItem is not None :
             self.list1.insertItem(currentRow+1,newItem)
 
@@ -89,7 +92,7 @@ class Main(QMainWindow, form_class):
 
     def sortItem(self):
         self.list1.sortItems()
-        pass
+
 
 
 
